@@ -3,7 +3,7 @@ function openFeatures() {
   var allFullElems = document.querySelectorAll(".fullElems");
   var allFullBack = document.querySelectorAll(".fullElems .back");
   // Target the landing section containing the header and video
-  var mainDashboard = document.querySelector(".allelems"); 
+  var mainDashboard = document.querySelector(".allelems");
 
   allElems.forEach(function (elem) {
     elem.addEventListener("click", function () {
@@ -19,7 +19,6 @@ function openFeatures() {
     });
   });
 }
-
 
 openFeatures();
 
@@ -48,7 +47,7 @@ function todoList() {
         sum +
         `<div class="task">
                         <h5>${elem.task}</h5>
-                        <button id = ${idx}>${elem.details}</button>
+                        <button id = ${idx}>Mark as Done</button>
                     </div>`;
     });
     allTask.innerHTML = sum;
@@ -120,10 +119,12 @@ function motivationQuotes() {
 
   async function fetchQuote() {
     let response = await fetch("https://dummyjson.com/quotes/random");
-    let data = await response.json();
+    let motidata = await response.json();
+    console.log(motidata);
+    
 
-    motivationQuote.innerHTML = data.quote;
-    motivationAuthor.innerHTML = data.author;
+    motivationQuote.innerHTML = motidata.quote;
+    motivationAuthor.innerHTML = motidata.author;
   }
 
   document.querySelector(".moti").addEventListener("click", fetchQuote);
@@ -131,98 +132,101 @@ function motivationQuotes() {
 
 motivationQuotes();
 
+function pomoTimer() {
+  let timer = document.querySelector(".pomo-timer h1");
+  var startBtn = document.querySelector(".pomo-timer .start-btn");
+  var pauseBtn = document.querySelector(".pomo-timer .pause-btn");
+  var resetBtn = document.querySelector(".pomo-timer .reset-btn");
+  var sessionType = document.querySelector(".pomo-session");
 
-let timer = document.querySelector('.pomo-timer h1');
-var startBtn = document.querySelector('.pomo-timer .start-btn')
-var pauseBtn = document.querySelector('.pomo-timer .pause-btn')
-var resetBtn = document.querySelector('.pomo-timer .reset-btn')
-var sessionType = document.querySelector('.pomo-session');
+  var isWorkSession = true;
 
-var isWorkSession = true;
+  let timerInterval = null;
+  let totalSeconds = 25 * 60;
 
-let timerInterval = null;
-let totalSeconds = 25*60;
+  function updateTimer() {
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
 
-function updateTimer(){
-  let minutes = Math.floor(totalSeconds/60);
-  let seconds = totalSeconds%60;
-
-  timer.innerHTML = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2,"0")}`
-}
-
-function startTimer(){
-  clearInterval(timerInterval);
-  if(isWorkSession){
-    // totalSeconds = 25*60;
-    sessionType.innerHTML = 'Work Session';
-    sessionType.style.backgroundColor = 'rgb(8, 138, 89)'
-    timerInterval = setInterval(() => {
-    if(totalSeconds>0){
-      totalSeconds--;
-      updateTimer();
-    }else{
-      isWorkSession = false;
-      totalSeconds = 5 * 60;
-  sessionType.innerHTML = 'Take a Break';
-  sessionType.style.backgroundColor = 'rgb(22, 174, 239)'
-      clearInterval(timerInterval);
-      timer.innerHTML = '05:00'
-    }
-    
-  }, 1);
-}else{
-  // totalSeconds = 5*60;
-    timerInterval = setInterval(() => {
-      
-      if(totalSeconds>0){
-        totalSeconds--;
-        updateTimer();
-      }else{
-        isWorkSession = true;
-        totalSeconds = 25 * 60;
-        sessionType.innerHTML = 'Work Session';
-    sessionType.style.backgroundColor = 'rgb(8, 138, 89)'
-        clearInterval(timerInterval);
-        timer.innerHTML = '25:00';
-      }
-    }, 1);
+    timer.innerHTML = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
   }
+
+  function startTimer() {
+    clearInterval(timerInterval);
+    if (isWorkSession) {
+      // totalSeconds = 25*60;
+      sessionType.innerHTML = "Work Session";
+      sessionType.style.backgroundColor = "rgb(8, 138, 89)";
+      timerInterval = setInterval(() => {
+        if (totalSeconds > 0) {
+          totalSeconds--;
+          updateTimer();
+        } else {
+          isWorkSession = false;
+          totalSeconds = 5 * 60;
+          sessionType.innerHTML = "Take a Break";
+          sessionType.style.backgroundColor = "rgb(22, 174, 239)";
+          clearInterval(timerInterval);
+          timer.innerHTML = "05:00";
+        }
+      }, 1);
+    } else {
+      // totalSeconds = 5*60;
+      timerInterval = setInterval(() => {
+        if (totalSeconds > 0) {
+          totalSeconds--;
+          updateTimer();
+        } else {
+          isWorkSession = true;
+          totalSeconds = 25 * 60;
+          sessionType.innerHTML = "Work Session";
+          sessionType.style.backgroundColor = "rgb(8, 138, 89)";
+          clearInterval(timerInterval);
+          timer.innerHTML = "25:00";
+        }
+      }, 1);
+    }
+  }
+
+  function pauseTimer() {
+    clearInterval(timerInterval);
+  }
+
+  function resetTimer() {
+    clearInterval(timerInterval);
+    totalSeconds = 60 * 25;
+    updateTimer();
+  }
+
+  startBtn.addEventListener("click", function () {
+    startTimer();
+  });
+
+  pauseBtn.addEventListener("click", function () {
+    pauseTimer();
+  });
+
+  resetBtn.addEventListener("click", function () {
+    resetTimer();
+  });
 }
 
-function pauseTimer(){
-  clearInterval(timerInterval);
-}
+pomoTimer();
 
-function resetTimer(){
-  clearInterval(timerInterval);
-  totalSeconds = 60*25;
-  updateTimer();
-}
+let apiKey = "21eb857db0ba46f9b45122647261910";
+var city = "Pune";
+var data = null;
 
-startBtn.addEventListener('click',function(){
-  startTimer();
-})
+var headerTemp = document.querySelector(".header2 h2");
+var headerCond = document.querySelector(".header2 h4");
+var headIndex = document.querySelector(".header2 .heat");
+var humidity = document.querySelector(".header2 .humi");
+var wind = document.querySelector(".header2 .wind");
 
-pauseBtn.addEventListener('click',function(){
-  pauseTimer();
-})
-
-resetBtn.addEventListener('click', function(){
-  resetTimer();
-})
-
-let apiKey = '21eb857db0ba46f9b45122647261910'
-var city = 'Pune';
-var data = null
-
-var headerTemp = document.querySelector('.header2 h2');
-var headerCond = document.querySelector('.header2 h4');
-var headIndex = document.querySelector('.header2 .heat');
-var humidity = document.querySelector('.header2 .humi');
-var wind = document.querySelector('.header2 .wind');
-
-async function weatherApi(){
-  var response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`);
+async function weatherApi() {
+  var response = await fetch(
+    `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`,
+  );
   data = await response.json();
 
   headerTemp.innerHTML = `${data.current.temp_c}°C `;
@@ -230,34 +234,64 @@ async function weatherApi(){
   console.log(data.current);
 
   headerCond.innerHTML = `${data.current.condition.text}`;
-  headIndex.innner = `Heat Index: ${data.current.headindex_c}°C`
-  humidity.innerHTML = `Humidity:${data.current.humidity}%`
-  wind.innerHTML = `Wind: ${data.current.wind_kph} Km/h`
-  
+  headIndex.innner = `Heat Index: ${data.current.headindex_c}°C`;
+  humidity.innerHTML = `Humidity:${data.current.humidity}%`;
+  wind.innerHTML = `Wind: ${data.current.wind_kph} Km/h`;
 }
 
 weatherApi();
 
-var todayDay = document.querySelector('.header1 h2');
-var todayDate = document.querySelector('.header1 h3');
+var todayDay = document.querySelector(".header1 h2");
+var todayDate = document.querySelector(".header1 h3");
 
-function timeDate(){
-  const totalDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  const totalMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+function timeDate() {
+  const totalDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const totalMonths = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   var date = new Date();
   var dayOfWeek = totalDays[date.getDay()];
   var hours = date.getHours();
   var minutes = date.getMinutes();
   var secs = date.getSeconds();
-  todayDay.innerHTML = `${dayOfWeek}, ${hours}:${minutes}:${String(secs).padStart(2,"0")} PM`
+
+  var ampm = hours>=12? "PM" : "AM";
+
+  todayDay.innerHTML = `${dayOfWeek}, ${hours}:${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")} ${ampm}`;
 
   var todaydate = date.getDate();
   var month = totalMonths[date.getMonth()];
   var year = date.getFullYear();
 
-  todayDate.innerHTML = `${todaydate} ${month}, ${year}`
-
+  todayDate.innerHTML = `${todaydate} ${month}, ${year}`;
 }
-setInterval(()=>{
+setInterval(() => {
   timeDate();
-},1000)
+}, 1000);
+
+
+document.querySelector('.goals').addEventListener('click', function(){
+  alert("Feature currently Unavailable!");
+  
+})
+
+
