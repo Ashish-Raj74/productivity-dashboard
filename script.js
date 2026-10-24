@@ -169,7 +169,7 @@ function pomoTimer() {
           clearInterval(timerInterval);
           timer.innerHTML = "05:00";
         }
-      }, 1);
+      }, 0.1);
     } else {
       // totalSeconds = 5*60;
       timerInterval = setInterval(() => {
@@ -184,7 +184,7 @@ function pomoTimer() {
           clearInterval(timerInterval);
           timer.innerHTML = "25:00";
         }
-      }, 1);
+      }, 0.1);
     }
   }
 
@@ -295,3 +295,47 @@ document.querySelector('.goals').addEventListener('click', function(){
 })
 
 
+var theme = document.querySelector('.theme');
+var rootElement = document.documentElement;
+var flag = 0;
+
+theme.addEventListener('click', function(){
+    // --pri: #DCE7DE;
+    // --sec: #B8664F;
+    // --tri1: #AA8B56;
+//     --tri2: #3F607A;
+// --new: #5D7A91C8;
+// --btn: #263F55;
+
+    if(flag == 0){
+      rootElement.style.setProperty('--new', '#5D7A91C8');
+      rootElement.style.setProperty('--tri2', '#3e5d74e3');
+      rootElement.style.setProperty('--btn', '#263F55');
+      flag = 1;
+    }
+    else if(flag == 1){
+      rootElement.style.setProperty('--new', '#7A648DC8');
+      rootElement.style.setProperty('--tri2', '#5B456F');
+      rootElement.style.setProperty('--btn', '#392B4A');
+      flag = 2;
+    }
+    else if(flag == 2){
+      rootElement.style.setProperty('--new', '#477D83C8');
+      rootElement.style.setProperty('--tri2', '#28616A');
+      rootElement.style.setProperty('--btn', '#174149');
+      flag = 3;
+    }
+    else if(flag == 3){
+      rootElement.style.setProperty('--new', '#935F4BC8');
+      rootElement.style.setProperty('--tri2', '#A85E43');
+      rootElement.style.setProperty('--btn', '#693825');
+      flag = 4;
+    }
+    else if(flag == 4){
+      rootElement.style.setProperty('--new', '#70958CC8');
+      rootElement.style.setProperty('--tri2', '#1E4745');
+      rootElement.style.setProperty('--btn', '#713F2A');
+      flag = 0;
+    }
+
+})
