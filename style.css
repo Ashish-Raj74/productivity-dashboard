@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Syne+Mono&display=swap');* {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Syne+Mono&display=swap');
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -23,7 +24,9 @@
     --pri: #DCE7DE;
     --sec: #B8664F;
     --tri1: #AA8B56;
-    --tri2: #806837;
+    --tri2: #c3850a;
+    --new: #92a495c8;
+    --btn: #714f0c;;
 }
 
 html, body {
@@ -37,6 +40,7 @@ html, body {
     height: 110%;
     width: 100%;
     background-color: var(--tri2);
+    /* padding-top: 20px; */
 }
 
 /* nav {
@@ -150,7 +154,7 @@ header .header2 h3{
     position: absolute;
     bottom: 4%;
     right: 5%;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 500;
 }
 
@@ -221,7 +225,7 @@ header .header2 h3{
     border-radius: 6px; 
     border: 1px solid rgba(255, 255, 255, 0.2);
     outline: none;
-    background-color: #92a495; 
+    background-color: var(--new); 
     font-size: 22px;
     margin-bottom: 20px;
     color: #fff;
@@ -242,7 +246,7 @@ form textarea::placeholder {
     border-radius: 6px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     outline: none;
-    background-color: #92a495;
+    background-color: var(--new);
     font-size: 22px;
     margin-bottom: 20px;
     color: #fff;
@@ -289,7 +293,7 @@ form textarea::placeholder {
 }
 
 .task {
-    background-color: #92a495; 
+    background-color: var(--new); 
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -362,6 +366,7 @@ form textarea::placeholder {
     top: 8%;
     left: 1.14%;
     font-size: 17px;
+    color: #3f2dff;
 }
 
 .day-planner .day-planner-time input{
@@ -372,7 +377,7 @@ form textarea::placeholder {
     font-size: 25.5px;
     padding-top: 29px;
     color: white;
-    background-color:#92a495;
+    background-color:var(--new);
     outline: none;
 }
 
@@ -411,7 +416,6 @@ form textarea::placeholder {
     max-width: 75%;
 }
 
-/* Close button */
 
 .motivation-fullPage > .back {
     position: absolute;
@@ -420,7 +424,7 @@ form textarea::placeholder {
     padding: 12px 25px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 10px;
-    background: #e11d48;
+    background: #e91946;
     color: #fff;
     font-family: "Montserrat", sans-serif;
     font-size: 15px;
@@ -438,7 +442,6 @@ form textarea::placeholder {
     transform: scale(0.97);
 }
 
-/* Quote card positioning */
 
 .motivation-fullPage .motivation-container {
     position: absolute;
@@ -452,7 +455,6 @@ form textarea::placeholder {
     overflow: visible;
 }
 
-/* Soft glow behind the card */
 
 .motivation-fullPage .motivation-container::after {
     content: "";
@@ -502,8 +504,6 @@ form textarea::placeholder {
     pointer-events: none;
 }
 
-/* Quote of the day label */
-
 .motivation-1 {
     position: relative;
     z-index: 1;
@@ -523,8 +523,6 @@ form textarea::placeholder {
     letter-spacing: 0.2px;
 }
 
-/* Main quote */
-
 .motivation-2 {
     position: relative;
     z-index: 1;
@@ -542,8 +540,6 @@ form textarea::placeholder {
     overflow-wrap: anywhere;
     word-break: normal;
 }
-
-/* Quote author */
 
 .motivation-3 {
     position: relative;
@@ -570,9 +566,6 @@ form textarea::placeholder {
     overflow-wrap: anywhere;
 }
 
-/* =========================================
-   TABLET
-========================================= */
 
 @media (max-width: 768px) {
     .motivation-fullPage {
@@ -627,9 +620,6 @@ form textarea::placeholder {
     }
 }
 
-/* =========================================
-   MOBILE
-========================================= */
 
 @media (max-width: 480px) {
     .motivation-fullPage {
@@ -699,13 +689,13 @@ form textarea::placeholder {
 
 /* // pomodoro page styling  */
 
-.pomodoro-fullPage{
+/* .pomodoro-fullPage{
     /* display: block; */
-    position: relative;
-}
+    /* position: relative; */
+/* } */ */
 
 .pomodoro-fullPage h1{
-    font-size: 45px;
+    font-size: 55px;
 }
 
 .pomodoro-fullPage .pomo-timer{
@@ -721,7 +711,7 @@ form textarea::placeholder {
 }
 
 .pomo-timer button{
-    background-color: #5d4a24;
+    background-color: var(--btn);
     padding: 14px 25px;
     border-radius: 8px;
     font-size: 17px;
@@ -750,5 +740,86 @@ form textarea::placeholder {
     font-size: 20px;
     font-weight: 600;
     border-radius: 5px;
+}
+
+/* nav{
+    height: 62px;
+    width: 98%;
+    margin: auto;
+    background-color: var(--new);
+    /* padding: 30px 40px; */
+    /* border-radius: 15px; */
+    /* margin-bottom: -50px; */
+/* } */ 
+
+/* .nav-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 23px 30px;
+    border-radius: 20px;
+} */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-item {
+    width: 100%;
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 22px;
+
+    background: var(--btn);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+    /* margin-bottom: 20px; */
+}
+
+.nav-item h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(17px, 2vw, 25px);
+    font-weight: 700;
+    color: #fff8e8;
+    letter-spacing: -0.4px;
+}
+
+.theme {
+    padding: 10px 16px;
+    background: var(--new);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 9px;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.theme:hover {
+    background: var(--pri);
+    color: var(--btn);
+}
+
+.theme:active {
+    transform: scale(0.97);
+}
+
+/* /* Hide navbar  */
+#main:has(.fullElems[style*="display: block"]) > nav {
+    display: none;
 }
 
