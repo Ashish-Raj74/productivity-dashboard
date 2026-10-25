@@ -169,7 +169,7 @@ function pomoTimer() {
           clearInterval(timerInterval);
           timer.innerHTML = "05:00";
         }
-      }, 0.1);
+      }, 1000);
     } else {
       // totalSeconds = 5*60;
       timerInterval = setInterval(() => {
@@ -184,7 +184,7 @@ function pomoTimer() {
           clearInterval(timerInterval);
           timer.innerHTML = "25:00";
         }
-      }, 0.1);
+      }, 1000);
     }
   }
 
