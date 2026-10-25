@@ -366,7 +366,7 @@ form textarea::placeholder {
     top: 8%;
     left: 1.14%;
     font-size: 17px;
-    color: #3f2dff;
+    color: #c2660a;
 }
 
 .day-planner .day-planner-time input{
@@ -376,8 +376,8 @@ form textarea::placeholder {
     border: none;
     font-size: 25.5px;
     padding-top: 29px;
-    color: white;
-    background-color:var(--new);
+    color: rgba(35, 37, 35, 0.725);
+    background-color: rgb(225, 202, 225);
     outline: none;
 }
 
@@ -692,7 +692,7 @@ form textarea::placeholder {
 /* .pomodoro-fullPage{
     /* display: block; */
     /* position: relative; */
-/* } */ */
+/* }g
 
 .pomodoro-fullPage h1{
     font-size: 55px;
