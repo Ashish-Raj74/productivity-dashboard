@@ -185,7 +185,7 @@ header .header2 h3{
     transition: background-color 0.2s ease;
 }
 .back:hover {
-    background-color: #be123c;
+    background-color: #ff0644b0;
 }
 .back:active {
     scale: 0.97;
