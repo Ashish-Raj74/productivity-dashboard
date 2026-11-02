@@ -955,3 +955,113 @@ nav {
     padding: 28px 14px 12px;
   }
 }
+
+/* home page responsive */
+
+@media (max-width: 768px) {
+  #main {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  section.allelems {
+    position: relative;
+    height: auto;
+    padding: 90px 24px 30px;
+  }
+
+  .allelems header.home-header {
+    min-height: 260px;
+    padding: 26px;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .home-header .header1 h3 {
+    font-size: 20px;
+  }
+
+  .home-header .header1 h2 {
+    font-size: clamp(30px, 5vw, 46px);
+    margin-bottom: 12px;
+  }
+
+  .home-header .header1 h5 {
+    font-size: 27px;
+  }
+
+  .home-header .header2 h2 {
+    font-size: 38px;
+  }
+
+  .home-header .header2 h4 {
+    font-size: 19px;
+    margin-bottom: 10px;
+  }
+
+  .home-header .header2 h3 {
+    font-size: 14px;
+  }
+
+  .all-features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .elem {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5 / 6;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  section.allelems {
+    padding: 82px 16px 24px;
+  }
+
+  .allelems header.home-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px;
+    gap: 24px;
+  }
+
+  .home-header .header1 h3 {
+    font-size: 16px;
+  }
+
+  .home-header .header1 h2 {
+    font-size: 34px;
+    overflow-wrap: anywhere;
+  }
+
+  .home-header .header1 h5 {
+    font-size: 23px;
+  }
+
+  .home-header .header2 h2 {
+    font-size: 34px;
+  }
+
+  .home-header .header2 h4 {
+    font-size: 17px;
+  }
+
+  .home-header .header2 h3 {
+    font-size: 13px;
+  }
+
+  .all-features {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .elem {
+    aspect-ratio: auto;
+    height: 250px;
+  }
+}
