@@ -174,13 +174,14 @@ header .header2 h3{
 .back {
     position: absolute;
     right: 5%;
-    padding: 10px 20px;
+    padding: 8px 18px;
     background-color: #f41042;
     border-radius: 6px;
     border: none;
     color: #fff;
     font-weight: 500;
-    font-size: 17px;
+    font-family: "Montserrat";
+    font-size: 18px;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
